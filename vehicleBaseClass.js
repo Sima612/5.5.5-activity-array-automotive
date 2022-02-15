@@ -62,7 +62,7 @@ class Vehicle {
         decelerate();
     }
 
-    autoPark()
+    autoPark() 
     {
 
     }
@@ -85,7 +85,45 @@ class Vehicle {
     }
 }
 
-//This exports things you want to use from this "module", more info in readme
-module.exports = {
-    Vehicle
+class Car extends Vehicle {
+    constructor(maximimPassengers, passenger, numberOfWheels, maximumSpeed, fuel, scheduleService) {
+        super(make, model, year, color, mileage);
+        this.maximimPassengers = 6;
+        this.passenger = 0;
+        this.numberOfWheels = 4;
+        this.maximumSpeed = 200;
+        this.fuel = 100;
+        this.scheduleService = false;
+        this.started = false;
+    }
+
+    loadPassenger(num) {
+        if((num + this.passenger) <= this.maximimPassengers) {
+                this.passenger = num
+                consolole.log("There is only " + this.passenger + " person/people" + ", we have space!")
+            } else {
+                console.log("Not enough space!...")
+            }
+    }
+
+    start() {
+        if(this.fuel > 0) {
+            this.started = true;
+            console.log("Engine started...")
+        } else {
+            console.log("Engine cannot start...")
+        }
+    }
+
+    scheduleService(mileage) {
+        if(this.mileage >= 30000) {
+            this.scheduleService == true
+            console.log("Time for maintenance!!")
+        } else {
+            console.log("Not due for maintenance...")
+            return this.scheduleService
+        }
+    }
 }
+//This exports things you want to use from this "module", more info in readme
+module.exports = {Vehicle}
